@@ -8,9 +8,10 @@
  *       - Execute as: Me
  *       - Who has access: Anyone
  *     Click Deploy and allow the permissions it asks for.
- *  4. Copy the Web app URL (ends in /exec) and paste it into
- *     assets/js/script.js → SITE_CONFIG.googleSheet.webAppUrl
- *     (and, for PHP hosting, config.php → GOOGLE_SHEET_WEBHOOK).
+ *  4. Copy the Web app URL (ends in /exec) into the website's .env file:
+ *       GOOGLE_SHEET_WEBHOOK=https://script.google.com/macros/s/…/exec
+ *     The browser form gets it through assets/js/env.js (built automatically before
+ *     `firebase deploy`; on XAMPP run `node scripts/build-env.mjs`). PHP reads .env directly.
  *
  * After changing this code later: Deploy → Manage deployments → edit → Version: "New version"
  * (the /exec URL stays the same).

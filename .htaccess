@@ -31,6 +31,8 @@ AddDefaultCharset UTF-8
   # -------------------------------------------------------------------
   # Hide working files & folders that are not part of the website (404)
   # -------------------------------------------------------------------
+  # anything inside a dot-folder (.git/, .firebase/, .vscode/ …) — except /.well-known/ (SSL checks)
+  RewriteRule (^|/)\.(?!well-known(/|$)) - [R=404,L]
   RewriteRule ^(_archive|mockup|data|assets/element|google-apps-script|scripts)(/|$) - [R=404,L,NC]
   RewriteRule ^(note\.txt|content\.docx|config\.php|firebase\.json|404\.html)$ - [R=404,L,NC]
   RewriteRule \.(zip|log|bak|sql)$ - [R=404,L,NC]
