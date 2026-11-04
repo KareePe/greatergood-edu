@@ -1,0 +1,114 @@
+# =====================================================================
+#  GGED × Harvard ManageMentor® — Apache config (XAMPP / any Apache host)
+#  Works from the domain root or a sub-folder (e.g. /greatergood-edu/).
+#  Firebase Hosting ignores this file — the same clean URLs are set in firebase.json.
+# =====================================================================
+
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+AddDefaultCharset UTF-8
+
+# ---------------------------------------------------------------------
+# Correct content types
+# ---------------------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType image/webp                 .webp
+  AddType font/otf                   .otf
+  AddType font/ttf                   .ttf
+  AddType application/manifest+json  .webmanifest
+  AddType image/x-icon               .ico
+  AddCharset UTF-8 .html .css .js .json .webmanifest .xml .txt
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # BASE = URL path of this folder ("/" at a domain root, "/greatergood-edu/" on XAMPP),
+  # so the redirects below never need a hard-coded path.
+  RewriteCond %{REQUEST_URI}::$1 ^(.*?/)(.*)::\2$
+  RewriteRule ^(.*)$ - [E=BASE:%1]
+
+  # -------------------------------------------------------------------
+  # Hide working files & folders that are not part of the website (404)
+  # -------------------------------------------------------------------
+  RewriteRule ^(_archive|mockup|data|assets/element|google-apps-script|scripts)(/|$) - [R=404,L,NC]
+  RewriteRule ^(note\.txt|content\.docx|config\.php|firebase\.json|404\.html)$ - [R=404,L,NC]
+  RewriteRule \.(zip|log|bak|sql)$ - [R=404,L,NC]
+
+  # -------------------------------------------------------------------
+  # Clean URLs (no .html)
+  # -------------------------------------------------------------------
+  # 1) /index.html → /   (and /folder/index.html → /folder/), query string kept
+  RewriteCond %{THE_REQUEST} \s/+(?:[^?\s]*/)?index\.html[\s?] [NC]
+  RewriteRule ^(.*/)?index\.html$ %{ENV:BASE}$1 [R=301,L,NE,NC]
+  #    /index (no extension) → /  so the home page has a single URL
+  RewriteCond %{THE_REQUEST} \s/+(?:[^?\s]*/)?index[\s?] [NC]
+  RewriteRule ^(.*/)?index$ %{ENV:BASE}$1 [R=301,L,NE,NC]
+
+  # 2) /page.html → /page   (only for real browser requests, never for internal rewrites)
+  RewriteCond %{THE_REQUEST} \s/+[^?\s]*?\.html[\s?] [NC]
+  RewriteRule ^(.+?)\.html$ %{ENV:BASE}$1 [R=301,L,NE,NC]
+
+  # 3) /page/ → /page   (trailing slash on something that is not a real folder)
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.+)/$ %{ENV:BASE}$1 [R=301,L,NE]
+
+  # 4) /page → serve page.html internally
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+)$ $1.html [L]
+</IfModule>
+
+# Dotfiles (.git, .firebaserc, .DS_Store …) are never served
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# ---------------------------------------------------------------------
+# Security headers
+# ---------------------------------------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+  Header unset X-Powered-By
+</IfModule>
+
+# ---------------------------------------------------------------------
+# Compression
+# ---------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/xml
+  AddOutputFilterByType DEFLATE application/javascript text/javascript application/json application/manifest+json
+  AddOutputFilterByType DEFLATE image/svg+xml image/x-icon font/otf font/ttf
+</IfModule>
+
+# ---------------------------------------------------------------------
+# Caching
+#   Images & fonts: 30 days.  HTML / CSS / JS: always re-check (file names
+#   are not versioned, so updates must show up right away).
+# ---------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault                         "access plus 1 hour"
+  ExpiresByType text/html                "access plus 0 seconds"
+  ExpiresByType text/css                 "access plus 0 seconds"
+  ExpiresByType application/javascript   "access plus 0 seconds"
+  ExpiresByType text/javascript          "access plus 0 seconds"
+  ExpiresByType application/manifest+json "access plus 1 day"
+  ExpiresByType application/xml          "access plus 1 day"
+  ExpiresByType text/xml                 "access plus 1 day"
+  ExpiresByType image/webp               "access plus 30 days"
+  ExpiresByType image/jpeg               "access plus 30 days"
+  ExpiresByType image/png                "access plus 30 days"
+  ExpiresByType image/x-icon             "access plus 30 days"
+  ExpiresByType font/otf                 "access plus 30 days"
+  ExpiresByType font/ttf                 "access plus 30 days"
+</IfModule>
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|css|js)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
