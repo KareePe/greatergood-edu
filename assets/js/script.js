@@ -27,8 +27,8 @@
 
     // LINE Official Account of Wall Street English Khon Kaen (from QR CODE LINE.png).
     // The LINE button and footer link stay hidden if lineUrl is empty.
-    lineUrl: 'https://line.me/R/ti/p/%40237hhkup',
-    lineId: '@237hhkup',
+    lineUrl: 'https://line.me/R/ti/p/%40wsekhonkaen',
+    lineId: '@wsekhonkaen',
 
     // Directions to Wall Street English, Level 5, Central Khon Kaen.
     mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Wall+Street+English+Central+Khon+Kaen',
@@ -64,7 +64,7 @@
       'hero.eyebrow': 'Harvard ManageMentor® ที่<br><strong>Wall Street English ขอนแก่น</strong>',
       'hero.title': 'พัฒนาภาษาอังกฤษ <span class="accent">พร้อมทักษะที่ใช้ได้จริงในการทำงาน</span>',
       'hero.text': 'เรียนรู้ด้านการสื่อสาร การบริหาร และการทำงานร่วมกับผู้อื่น ผ่านเนื้อหา Harvard ManageMentor® พร้อมคลาสออนไลน์และกิจกรรมแลกเปลี่ยนประสบการณ์',
-      'hero.location': 'ติดต่อรับข้อมูลได้ที่ Wall Street English ชั้น 5 เซ็นทรัล ขอนแก่น',
+      'hero.location': 'Wall Street English ชั้น 5 เซ็นทรัล ขอนแก่น',
       'hero.secondary': 'ดู 12 หัวข้อการเรียนรู้',
 
       'about.title': 'Harvard ManageMentor® คืออะไร?',
@@ -92,6 +92,7 @@
       'cert.text': 'รับ Certificate of Completion จาก Harvard ManageMentor® เมื่อเรียนและผ่านข้อกำหนดของแต่ละหัวข้อ',
       'cert.alt': 'ตัวอย่าง Certificate of Completion ในกรอบรูป',
 
+      'heroForm.title': 'ฝากชื่อและเบอร์โทร ให้เจ้าหน้าที่ติดต่อกลับ',
       'form.title': 'สนใจหลักสูตร? ให้เราช่วยแนะนำข้อมูลที่เหมาะกับคุณ',
       'form.text': 'ฝากข้อมูลไว้ เพื่อให้ทีม Wall Street English ขอนแก่นติดต่อกลับ พร้อมรายละเอียดหลักสูตร รูปแบบการเรียน และค่าเรียน',
       'form.name': 'ชื่อ',
@@ -112,7 +113,11 @@
       'form.err.phone': 'กรุณากรอกเบอร์โทรศัพท์ที่ถูกต้อง',
       'form.err.email': 'รูปแบบอีเมลไม่ถูกต้อง',
       'form.err.server': 'ส่งข้อมูลไม่สำเร็จ กรุณาลองใหม่อีกครั้ง หรือโทร 043 000 222',
-      'form.success': 'ได้รับข้อมูลของคุณแล้ว ทีม Wall Street English ขอนแก่นจะติดต่อกลับเพื่อให้รายละเอียดหลักสูตร',
+      'form.success': 'ขอบคุณที่สนใจหลักสูตร เจ้าหน้าที่จะติดต่อกลับเพื่อให้ข้อมูลเพิ่มเติมค่ะ',
+
+      'lag.learn': 'เรียนรู้เนื้อหาระดับโลก',
+      'lag.apply': 'นำไปใช้ได้จริง',
+      'lag.grow': 'เติบโตในสายอาชีพ',
 
       'contact.place': 'Wall Street English ชั้น 5 เซ็นทรัล ขอนแก่น',
       'contact.near': 'ใกล้โรงหนังเอสเอฟ',
@@ -148,7 +153,7 @@
       'hero.eyebrow': 'Harvard ManageMentor®<br><strong>at Wall Street English Khon Kaen</strong>',
       'hero.title': 'Build Your English <span class="accent">and Skills for Work</span>',
       'hero.text': 'Develop your communication, management and collaboration skills through Harvard ManageMentor® content, supported by online classes and networking activities.',
-      'hero.location': 'Enquire at Wall Street English, Level 5, Central Khon Kaen',
+      'hero.location': 'Wall Street English, Level 5, Central Khon Kaen',
       'hero.secondary': 'Explore the 12 Learning Topics',
 
       'about.title': 'What is Harvard ManageMentor®?',
@@ -176,6 +181,7 @@
       'cert.text': 'Receive a Harvard ManageMentor® Certificate of Completion when you meet the requirements for each topic.',
       'cert.alt': 'Sample framed Certificate of Completion',
 
+      'heroForm.title': 'Leave your name and number for a call back',
       'form.title': 'Interested? Let Us Help You Explore the Programme',
       'form.text': 'Leave your details and the Wall Street English Khon Kaen team will contact you with programme information, learning options and fees.',
       'form.name': 'Name',
@@ -197,6 +203,10 @@
       'form.err.email': 'Please enter a valid email address',
       'form.err.server': 'Something went wrong. Please try again or call 043 000 222.',
       'form.success': 'Thank you. The Wall Street English Khon Kaen team will contact you with programme details.',
+
+      'lag.learn': 'World-class learning content',
+      'lag.apply': 'Put it into practice',
+      'lag.grow': 'Grow your career',
 
       'contact.place': 'Wall Street English, Level 5, Central Khon Kaen',
       'contact.near': 'Near SF Cinema',
@@ -305,8 +315,7 @@
         b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
       });
 
-      const langField = document.querySelector('#lead-form input[name="lang"]');
-      if (langField) langField.value = lang;
+      document.querySelectorAll('[data-lead-form] input[name="lang"]').forEach((f) => { f.value = lang; });
 
       renderTopics();
       store('localStorage', 'gged_lang', lang);
@@ -342,7 +351,7 @@
         const hidden = !topicsOpen && isExtra ? ' hidden' : '';
         const media = CFG.topicImages
           ? `<img src="assets/img/topics/${n}.webp" alt="Harvard ManageMentor® – ${tp[0]}" width="800" height="419" loading="lazy" decoding="async">`
-          : `<span class="ms" aria-hidden="true">${tp[1]}</span>`;
+          : `<svg class="ms" aria-hidden="true"><use href="#i-${tp[1]}"></use></svg>`;
         const revealAttr = firstRender && !isExtra ? ' data-reveal="up"' : '';
         const cls = animateNew && topicsOpen && isExtra ? 'topic-card topic-new' : 'topic-card';
         return `<li class="${cls}"${revealAttr}${hidden}>` +
@@ -358,7 +367,7 @@
       const btn = document.getElementById('topics-toggle');
       btn.setAttribute('aria-expanded', String(topicsOpen));
       btn.querySelector('[data-i18n]').textContent = t(topicsOpen ? 'topics.less' : 'topics.more');
-      btn.querySelector('.ms').textContent = topicsOpen ? 'expand_less' : 'expand_more';
+      btn.querySelector('.ms use').setAttribute('href', topicsOpen ? '#i-expand_less' : '#i-expand_more');
     }
 
     function initTopics() {
@@ -674,7 +683,6 @@
 
     /* ---------- lead source ---------- */
     function initLeadSource() {
-      const form = document.getElementById('lead-form');
       const params = new URLSearchParams(location.search);
 
       // first-touch attribution for this visit
@@ -686,31 +694,28 @@
         UTM.forEach((k) => { saved[k] = params.get(k) || ''; });
         store('sessionStorage', 'gged_attr', JSON.stringify(saved));
       }
-      [...UTM, 'referrer', 'landing_page'].forEach((k) => {
-        form.elements[k].value = saved[k] || '';
+      document.querySelectorAll('[data-lead-form]').forEach((form) => {
+        [...UTM, 'referrer', 'landing_page'].forEach((k) => {
+          if (form.elements[k]) form.elements[k].value = saved[k] || '';
+        });
       });
 
-      // every CTA leads to the same form; remember which one was used
+      // every CTA leads to the main form; remember which one was used
+      const main = document.getElementById('lead-form');
       document.querySelectorAll('[data-cta]').forEach((el) => {
-        el.addEventListener('click', () => { form.elements.lead_source.value = el.dataset.cta; });
+        el.addEventListener('click', () => { main.elements.lead_source.value = el.dataset.cta; });
       });
     }
 
-    /* ---------- enquiry form ---------- */
-    function initForm() {
-      const form = document.getElementById('lead-form');
-      const statusEl = document.getElementById('form-status');
-      const success = document.getElementById('form-success');
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const submitLabel = submitBtn.querySelector('[data-i18n]');
-
-      const sheetUrl = (CFG.googleSheet && CFG.googleSheet.webAppUrl) || '';
+    /* ---------- enquiry forms (main form + hero quick form) ---------- */
+    const sheetUrl = (CFG.googleSheet && CFG.googleSheet.webAppUrl) || '';
 
     // Google Sheet (Apps Script web app). Sent as a "simple" form-encoded request (no CORS preflight);
     // the script replies with JSON, so the site knows the row was really saved.
-    function sendToSheet() {
+    function sendToSheet(form) {
       const body = new URLSearchParams(new FormData(form));
-      if (!form.elements.marketing_opt_in.checked) body.set('marketing_opt_in', 'no');
+      const optIn = form.elements.marketing_opt_in;
+      if (!optIn || !optIn.checked) body.set('marketing_opt_in', 'no');
       body.set('user_agent', navigator.userAgent);
       return fetch(sheetUrl, { method: 'POST', body, redirect: 'follow' })
         .then((r) => r.json())
@@ -719,7 +724,7 @@
         });
     }
 
-    function sendToPhp() {
+    function sendToPhp(form) {
       return fetch(CFG.endpoint || 'submit.php', {
         method: 'POST',
         body: new FormData(form),
@@ -731,30 +736,36 @@
         });
     }
 
-    function sendLead() {
+    function sendLead(form) {
       // spam trap filled in by a bot: pretend it worked, send nothing
       if (form.elements.website && form.elements.website.value) return Promise.resolve();
       // wrapped so even a synchronous error (e.g. a malformed URL in the config) ends in the error message
-      return Promise.resolve().then(() => (sheetUrl ? sendToSheet() : sendToPhp()));
+      return Promise.resolve().then(() => (sheetUrl ? sendToSheet(form) : sendToPhp(form)));
     }
 
-    function setError(id, on) {
-        const input = document.getElementById(id);
-        const msg = form.querySelector(`.field-error[data-for="${id}"]`);
+    function setupForm(form) {
+      const statusEl = form.querySelector('.form-status');
+      const success = document.getElementById(form.dataset.success);
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const submitLabel = submitBtn.querySelector('[data-i18n]');
+      const submitKey = submitLabel.getAttribute('data-i18n');
+      const fields = ['name', 'phone', 'email'].map((n) => form.elements[n]).filter(Boolean);
+
+      function setError(input, on) {
+        const msg = form.querySelector(`.field-error[data-for="${input.id}"]`);
         input.setAttribute('aria-invalid', String(on));
         if (msg) msg.hidden = !on;
       }
 
       function validate() {
-        const name = form.elements.name.value.trim();
-        const phone = form.elements.phone.value.replace(/[\s\-().]/g, '');
-        const email = form.elements.email.value.trim();
-        const nameBad = name.length < 2;
-        const phoneBad = !/^(\+?66|0)\d{8,9}$/.test(phone);
-        const emailBad = email !== '' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        setError('f-name', nameBad);
-        setError('f-phone', phoneBad);
-        setError('f-email', emailBad);
+        const { name, phone, email } = form.elements;
+        const nameBad = name.value.trim().length < 2;
+        const phoneBad = !/^(\+?66|0)\d{8,9}$/.test(phone.value.replace(/[\s\-().]/g, ''));
+        const emailVal = email ? email.value.trim() : '';
+        const emailBad = emailVal !== '' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal);
+        setError(name, nameBad);
+        setError(phone, phoneBad);
+        if (email) setError(email, emailBad);
         if (nameBad || phoneBad || emailBad) {
           const first = form.querySelector('[aria-invalid="true"]');
           if (first) first.focus();
@@ -763,9 +774,7 @@
         return true;
       }
 
-      ['f-name', 'f-phone', 'f-email'].forEach((id) => {
-        document.getElementById(id).addEventListener('input', () => setError(id, false));
-      });
+      fields.forEach((input) => input.addEventListener('input', () => setError(input, false)));
 
       form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -775,7 +784,7 @@
         submitBtn.disabled = true;
         submitLabel.textContent = t('form.sending');
 
-        sendLead()
+        sendLead(form)
           .then(() => {
             form.hidden = true;
             success.hidden = false;
@@ -788,9 +797,13 @@
           })
           .then(() => {
             submitBtn.disabled = false;
-            submitLabel.textContent = t('form.submit');
+            submitLabel.textContent = t(submitKey);
           });
       });
+    }
+
+    function initForms() {
+      document.querySelectorAll('[data-lead-form]').forEach(setupForm);
     }
 
     /* ---------- boot ---------- */
@@ -801,7 +814,7 @@
     initContact();
     initTopics();
     initLeadSource();
-    initForm();
+    initForms();
     applyLang(savedLang());
   }
 

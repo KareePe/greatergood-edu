@@ -118,7 +118,7 @@
    ],
    "hasMap": "https://www.google.com/maps/search/?api=1&query=Wall+Street+English+Central+Khon+Kaen",
    "sameAs": [
-    "https://line.me/R/ti/p/%40237hhkup"
+    "https://line.me/R/ti/p/%40wsekhonkaen"
    ]
   },
   {
@@ -281,7 +281,7 @@
      "name": "ติดต่อรับข้อมูลหลักสูตรได้ที่ไหน?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Wall Street English ชั้น 5 เซ็นทรัล ขอนแก่น ใกล้โรงหนังเอสเอฟ โทร 043 000 222 / 096 953 5445 หรือ LINE @237hhkup"
+      "text": "Wall Street English ชั้น 5 เซ็นทรัล ขอนแก่น ใกล้โรงหนังเอสเอฟ โทร 043 000 222 / 096 953 5445 หรือ LINE @wsekhonkaen"
      }
     }
    ]
@@ -290,15 +290,74 @@
 }
 </script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="assets/img/hero-team-city.webp">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=block">
+<link rel="preload" as="image" href="assets/img/team-cutout.webp">
+<link rel="preload" href="assets/fonts/AvenirLTProRoman.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="assets/fonts/AvenirLTProHeavy.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="assets/fonts/PSL160pro.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/fonts/PSL162pro.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="assets/css/style.css">
 <script src="assets/js/env.js"></script>
 <script src="assets/js/script.js"></script>
 </head>
 <body>
+<!-- Preloader: covers the first paint while fonts load; never blocks longer than 2.5 s (CSS failsafe at 3.5 s) -->
+<div class="preloader" id="preloader" aria-hidden="true">
+  <img src="assets/img/gged-hmm-logo.png" alt="" width="1078" height="336">
+  <span class="preloader-bar"><span></span></span>
+</div>
+<script>
+(function () {
+  var el = document.getElementById('preloader');
+  var seen = false;
+  try { seen = sessionStorage.getItem('gged_loaded') === '1'; } catch (e) {}
+  if (seen) { el.remove(); return; }
+  var finished = false;
+  function done() {
+    if (finished) return;
+    finished = true;
+    try { sessionStorage.setItem('gged_loaded', '1'); } catch (e) {}
+    el.classList.add('is-done');
+    setTimeout(function () { el.remove(); }, 500);
+  }
+  var loaded = new Promise(function (r) { window.addEventListener('load', r); });
+  var fonts = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+  Promise.all([loaded, fonts]).then(done, done);
+  setTimeout(done, 2500);
+})();
+</script>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="i-arrow_forward" viewBox="0 -960 960 960"><path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/></symbol>
+<symbol id="i-arrow_upward" viewBox="0 -960 960 960"><path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/></symbol>
+<symbol id="i-call" viewBox="0 -960 960 960"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z"/></symbol>
+<symbol id="i-campaign" viewBox="0 -960 960 960"><path d="M720-440v-80h160v80H720Zm48 280-128-96 48-64 128 96-48 64Zm-80-480-48-64 128-96 48 64-128 96ZM200-200v-160h-40q-33 0-56.5-23.5T80-440v-80q0-33 23.5-56.5T160-600h160l200-120v480L320-360h-40v160h-80Zm240-182v-196l-98 58H160v80h182l98 58Zm120 36v-268q27 24 43.5 58.5T620-480q0 41-16.5 75.5T560-346ZM300-480Z"/></symbol>
+<symbol id="i-check_circle" viewBox="0 -960 960 960"><path d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></symbol>
+<symbol id="i-chevron_right" viewBox="0 -960 960 960"><path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/></symbol>
+<symbol id="i-co_present" viewBox="0 -960 960 960"><path d="M840-120v-640H120v320H40v-320q0-33 23.5-56.5T120-840h720q33 0 56.5 23.5T920-760v560q0 33-23.5 56.5T840-120ZM247-447q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47Zm169.5-56.5Q440-527 440-560t-23.5-56.5Q393-640 360-640t-56.5 23.5Q280-593 280-560t23.5 56.5Q327-480 360-480t56.5-23.5ZM40-80v-112q0-34 17.5-62.5T104-298q62-31 126-46.5T360-360q66 0 130 15.5T616-298q29 15 46.5 43.5T680-192v112H40Zm80-80h480v-32q0-11-5.5-20T580-226q-54-27-109-40.5T360-280q-56 0-111 13.5T140-226q-9 5-14.5 14t-5.5 20v32Zm240-400Zm0 400Z"/></symbol>
+<symbol id="i-devices" viewBox="0 -960 960 960"><path d="M480-540ZM80-160v-80h400v80H80Zm120-120q-33 0-56.5-23.5T120-360v-360q0-33 23.5-56.5T200-800h560q33 0 56.5 23.5T840-720H200v360h280v80H200Zm600 40v-320H640v320h160Zm-180 80q-25 0-42.5-17.5T560-220v-360q0-25 17.5-42.5T620-640h200q25 0 42.5 17.5T880-580v360q0 25-17.5 42.5T820-160H620Zm100-300q13 0 21.5-9t8.5-21q0-13-8.5-21.5T720-520q-12 0-21 8.5t-9 21.5q0 12 9 21t21 9Zm0 60Z"/></symbol>
+<symbol id="i-directions" viewBox="0 -960 960 960"><path d="M320-360h80v-120h140v100l140-140-140-140v100H360q-17 0-28.5 11.5T320-520v160ZM480-80q-15 0-29.5-6T424-104L104-424q-12-12-18-26.5T80-480q0-15 6-29.5t18-26.5l320-320q12-12 26.5-18t29.5-6q15 0 29.5 6t26.5 18l320 320q12 12 18 26.5t6 29.5q0 15-6 29.5T856-424L536-104q-12 12-26.5 18T480-80ZM320-320l160 160 320-320-320-320-320 320 160 160Zm160-160Z"/></symbol>
+<symbol id="i-diversity_3" viewBox="0 -960 960 960"><path d="M40-160v-160q0-34 23.5-57t56.5-23h131q20 0 38 10t29 27q29 39 71.5 61t90.5 22q49 0 91.5-22t70.5-61q13-17 30.5-27t36.5-10h131q34 0 57 23t23 57v160H640v-91q-35 25-75.5 38T480-200q-43 0-84-13.5T320-252v92H40Zm440-160q-38 0-72-17.5T351-386q-17-25-42.5-39.5T253-440q22-37 93-58.5T480-520q63 0 134 21.5t93 58.5q-29 0-55 14.5T609-386q-22 32-56 49t-73 17ZM160-440q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T280-560q0 50-34.5 85T160-440Zm640 0q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T920-560q0 50-34.5 85T800-440ZM480-560q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T600-680q0 50-34.5 85T480-560Z"/></symbol>
+<symbol id="i-edit_note" viewBox="0 -960 960 960"><path d="M160-400v-80h280v80H160Zm0-160v-80h440v80H160Zm0-160v-80h440v80H160Zm360 560v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q8 9 12.5 20t4.5 22q0 11-4 22.5T863-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z"/></symbol>
+<symbol id="i-event_note" viewBox="0 -960 960 960"><path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm80 240v-80h400v80H280Zm0 160v-80h280v80H280Z"/></symbol>
+<symbol id="i-expand_less" viewBox="0 -960 960 960"><path d="m296-345-56-56 240-240 240 240-56 56-184-184-184 184Z"/></symbol>
+<symbol id="i-expand_more" viewBox="0 -960 960 960"><path d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"/></symbol>
+<symbol id="i-forum" viewBox="0 -960 960 960"><path d="M880-80 720-240H320q-33 0-56.5-23.5T240-320v-40h440q33 0 56.5-23.5T760-440v-280h40q33 0 56.5 23.5T880-640v560ZM160-473l47-47h393v-280H160v327ZM80-280v-520q0-33 23.5-56.5T160-880h440q33 0 56.5 23.5T680-800v280q0 33-23.5 56.5T600-440H240L80-280Zm80-240v-280 280Z"/></symbol>
+<symbol id="i-groups" viewBox="0 -960 960 960"><path d="M0-240v-63q0-43 44-70t116-27q13 0 25 .5t23 2.5q-14 21-21 44t-7 48v65H0Zm240 0v-65q0-32 17.5-58.5T307-410q32-20 76.5-30t96.5-10q53 0 97.5 10t76.5 30q32 20 49 46.5t17 58.5v65H240Zm540 0v-65q0-26-6.5-49T754-397q11-2 22.5-2.5t23.5-.5q72 0 116 26.5t44 70.5v63H780Zm-455-80h311q-10-20-55.5-35T480-370q-55 0-100.5 15T325-320ZM160-440q-33 0-56.5-23.5T80-520q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T160-440Zm640 0q-33 0-56.5-23.5T720-520q0-34 23.5-57t56.5-23q34 0 57 23t23 57q0 33-23 56.5T800-440Zm-320-40q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q51 0 85.5 34.5T600-600q0 50-34.5 85T480-480Zm0-80q17 0 28.5-11.5T520-600q0-17-11.5-28.5T480-640q-17 0-28.5 11.5T440-600q0 17 11.5 28.5T480-560Zm1 240Zm-1-280Z"/></symbol>
+<symbol id="i-handshake" viewBox="0 -960 960 960"><path d="M475-160q4 0 8-2t6-4l328-328q12-12 17.5-27t5.5-30q0-16-5.5-30.5T817-607L647-777q-11-12-25.5-17.5T591-800q-15 0-30 5.5T534-777l-11 11 74 75q15 14 22 32t7 38q0 42-28.5 70.5T527-522q-20 0-38.5-7T456-550l-75-74-175 175q-3 3-4.5 6.5T200-435q0 8 6 14.5t14 6.5q4 0 8-2t6-4l136-136 56 56-135 136q-3 3-4.5 6.5T285-350q0 8 6 14t14 6q4 0 8-2t6-4l136-135 56 56-135 136q-3 2-4.5 6t-1.5 8q0 8 6 14t14 6q4 0 7.5-1.5t6.5-4.5l136-135 56 56-136 136q-3 3-4.5 6.5T454-180q0 8 6.5 14t14.5 6Zm-1 80q-37 0-65.5-24.5T375-166q-34-5-57-28t-28-57q-34-5-56.5-28.5T206-336q-38-5-62-33t-24-66q0-20 7.5-38.5T149-506l232-231 131 131q2 3 6 4.5t8 1.5q9 0 15-5.5t6-14.5q0-4-1.5-8t-4.5-6L398-777q-11-12-25.5-17.5T342-800q-15 0-30 5.5T285-777L144-635q-9 9-15 21t-8 24q-2 12 0 24.5t8 23.5l-58 58q-17-23-25-50.5T40-590q2-28 14-54.5T87-692l141-141q24-23 53.5-35t60.5-12q31 0 60.5 12t52.5 35l11 11 11-11q24-23 53.5-35t60.5-12q31 0 60.5 12t52.5 35l169 169q23 23 35 53t12 61q0 31-12 60.5T873-437L545-110q-14 14-32.5 22T474-80Zm-99-560Z"/></symbol>
+<symbol id="i-hub" viewBox="0 -960 960 960"><path d="M155-75q-35-35-35-85t35-85q35-35 85-35 14 0 26 3t23 8l57-71q-28-31-39-70t-5-78l-81-27q-17 25-43 40t-58 15q-50 0-85-35T0-580q0-50 35-85t85-35q50 0 85 35t35 85v8l81 28q20-36 53.5-61t75.5-32v-87q-39-11-64.5-42.5T360-840q0-50 35-85t85-35q50 0 85 35t35 85q0 42-26 73.5T510-724v87q42 7 75.5 32t53.5 61l81-28v-8q0-50 35-85t85-35q50 0 85 35t35 85q0 50-35 85t-85 35q-32 0-58.5-15T739-515l-81 27q6 39-5 77.5T614-340l57 70q11-5 23-7.5t26-2.5q50 0 85 35t35 85q0 50-35 85t-85 35q-50 0-85-35t-35-85q0-20 6.5-38.5T624-232l-57-71q-41 23-87.5 23T392-303l-56 71q11 15 17.5 33.5T360-160q0 50-35 85t-85 35q-50 0-85-35Zm-35-465q17 0 28.5-11.5T160-580q0-17-11.5-28.5T120-620q-17 0-28.5 11.5T80-580q0 17 11.5 28.5T120-540Zm148.5 408.5Q280-143 280-160t-11.5-28.5Q257-200 240-200t-28.5 11.5Q200-177 200-160t11.5 28.5Q223-120 240-120t28.5-11.5Zm240-680Q520-823 520-840t-11.5-28.5Q497-880 480-880t-28.5 11.5Q440-857 440-840t11.5 28.5Q463-800 480-800t28.5-11.5ZM480-360q42 0 71-29t29-71q0-42-29-71t-71-29q-42 0-71 29t-29 71q0 42 29 71t71 29Zm268.5 228.5Q760-143 760-160t-11.5-28.5Q737-200 720-200t-28.5 11.5Q680-177 680-160t11.5 28.5Q703-120 720-120t28.5-11.5Zm120-420Q880-563 880-580t-11.5-28.5Q857-620 840-620t-28.5 11.5Q800-597 800-580t11.5 28.5Q823-540 840-540t28.5-11.5ZM480-840ZM120-580Zm360 120Zm360-120ZM240-160Zm480 0Z"/></symbol>
+<symbol id="i-insights" viewBox="0 -960 960 960"><path d="M120-160q-33 0-56.5-23.5T40-240q0-33 23.5-56.5T120-320h10.5q4.5 0 9.5 2l182-182q-2-5-2-9.5V-520q0-33 23.5-56.5T400-600q33 0 56.5 23.5T480-520q0 2-2 20l102 102q5-2 9.5-2h21q4.5 0 9.5 2l142-142q-2-5-2-9.5V-560q0-33 23.5-56.5T840-640q33 0 56.5 23.5T920-560q0 33-23.5 56.5T840-480h-10.5q-4.5 0-9.5-2L678-340q2 5 2 9.5v10.5q0 33-23.5 56.5T600-240q-33 0-56.5-23.5T520-320v-10.5q0-4.5 2-9.5L420-442q-5 2-9.5 2H400q-2 0-20-2L198-260q2 5 2 9.5v10.5q0 33-23.5 56.5T120-160Zm40-401-25-54-54-25 54-25 25-54 25 54 54 25-54 25-25 54Zm440-39-38-82-82-38 82-38 38-82 38 82 82 38-82 38-38 82Z"/></symbol>
+<symbol id="i-laptop_mac" viewBox="0 -960 960 960"><path d="M80-160q-33 0-56.5-23.5T0-240h160q-33 0-56.5-23.5T80-320v-440q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v440q0 33-23.5 56.5T800-240h160q0 33-23.5 56.5T880-160H80Zm428.5-51.5Q520-223 520-240t-11.5-28.5Q497-280 480-280t-28.5 11.5Q440-257 440-240t11.5 28.5Q463-200 480-200t28.5-11.5ZM160-320h640v-440H160v440Zm0 0v-440 440Z"/></symbol>
+<symbol id="i-location_on" viewBox="0 -960 960 960"><path d="M536.5-503.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5ZM480-186q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></symbol>
+<symbol id="i-lock" viewBox="0 -960 960 960"><path d="M240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560v400q0 33-23.5 56.5T720-80H240Zm0-80h480v-400H240v400Zm296.5-143.5Q560-327 560-360t-23.5-56.5Q513-440 480-440t-56.5 23.5Q400-393 400-360t23.5 56.5Q447-280 480-280t56.5-23.5ZM360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-160v-400 400Z"/></symbol>
+<symbol id="i-menu_book" viewBox="0 -960 960 960"><path d="M560-564v-68q33-14 67.5-21t72.5-7q26 0 51 4t49 10v64q-24-9-48.5-13.5T700-600q-38 0-73 9.5T560-564Zm0 220v-68q33-14 67.5-21t72.5-7q26 0 51 4t49 10v64q-24-9-48.5-13.5T700-380q-38 0-73 9t-67 27Zm0-110v-68q33-14 67.5-21t72.5-7q26 0 51 4t49 10v64q-24-9-48.5-13.5T700-490q-38 0-73 9.5T560-454ZM260-320q47 0 91.5 10.5T440-278v-394q-41-24-87-36t-93-12q-36 0-71.5 7T120-692v396q35-12 69.5-18t70.5-6Zm260 42q44-21 88.5-31.5T700-320q36 0 70.5 6t69.5 18v-396q-33-14-68.5-21t-71.5-7q-47 0-93 12t-87 36v394Zm-40 118q-48-38-104-59t-116-21q-42 0-82.5 11T100-198q-21 11-40.5-1T40-234v-482q0-11 5.5-21T62-752q46-24 96-36t102-12q58 0 113.5 15T480-740q51-30 106.5-45T700-800q52 0 102 12t96 36q11 5 16.5 15t5.5 21v482q0 23-19.5 35t-40.5 1q-37-20-77.5-31T700-240q-60 0-116 21t-104 59ZM280-494Z"/></symbol>
+<symbol id="i-public" viewBox="0 -960 960 960"><path d="M324-111.5Q251-143 197-197t-85.5-127Q80-397 80-480t31.5-156Q143-709 197-763t127-85.5Q397-880 480-880t156 31.5Q709-817 763-763t85.5 127Q880-563 880-480t-31.5 156Q817-251 763-197t-127 85.5Q563-80 480-80t-156-31.5ZM440-162v-78q-33 0-56.5-23.5T360-320v-40L168-552q-3 18-5.5 36t-2.5 36q0 121 79.5 212T440-162Zm276-102q41-45 62.5-100.5T800-480q0-98-54.5-179T600-776v16q0 33-23.5 56.5T520-680h-80v80q0 17-11.5 28.5T400-560h-80v80h240q17 0 28.5 11.5T600-440v120h40q26 0 47 15.5t29 40.5Z"/></symbol>
+<symbol id="i-school" viewBox="0 -960 960 960"><path d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z"/></symbol>
+<symbol id="i-self_improvement" viewBox="0 -960 960 960"><path d="M272-160q-30 0-51-21t-21-51q0-21 12-39.5t32-26.5l156-62v-90q-54 63-125.5 96.5T120-320v-80q68 0 123.5-28T344-508l54-64q12-14 28-21t34-7h40q18 0 34 7t28 21l54 64q45 52 100.5 80T840-400v80q-83 0-154.5-33.5T560-450v90l156 62q20 8 32 26.5t12 39.5q0 30-21 51t-51 21H400v-20q0-26 17-43t43-17h120q9 0 14.5-5.5T600-260q0-9-5.5-14.5T580-280H460q-42 0-71 29t-29 71v20h-88Zm151.5-503.5Q400-687 400-720t23.5-56.5Q447-800 480-800t56.5 23.5Q560-753 560-720t-23.5 56.5Q513-640 480-640t-56.5-23.5Z"/></symbol>
+<symbol id="i-send" viewBox="0 -960 960 960"><path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"/></symbol>
+<symbol id="i-target" viewBox="0 -960 960 960"><path d="M324-111.5Q251-143 197-197t-85.5-127Q80-397 80-480t31.5-156Q143-709 197-763t127-85.5Q397-880 480-880t156 31.5Q709-817 763-763t85.5 127Q880-563 880-480t-31.5 156Q817-251 763-197t-127 85.5Q563-80 480-80t-156-31.5ZM707-253q93-93 93-227t-93-227q-93-93-227-93t-227 93q-93 93-93 227t93 227q93 93 227 93t227-93Zm-397-57q-70-70-70-170t70-170q70-70 170-70t170 70q70 70 70 170t-70 170q-70 70-170 70t-170-70Zm283-57q47-47 47-113t-47-113q-47-47-113-47t-113 47q-47 47-47 113t47 113q47 47 113 47t113-47Zm-169.5-56.5Q400-447 400-480t23.5-56.5Q447-560 480-560t56.5 23.5Q560-513 560-480t-23.5 56.5Q513-400 480-400t-56.5-23.5Z"/></symbol>
+<symbol id="i-trending_up" viewBox="0 -960 960 960"><path d="m136-240-56-56 296-298 160 160 208-206H640v-80h240v240h-80v-104L536-320 376-480 136-240Z"/></symbol>
+<symbol id="i-work" viewBox="0 -960 960 960"><path d="M160-120q-33 0-56.5-23.5T80-200v-440q0-33 23.5-56.5T160-720h160v-80q0-33 23.5-56.5T400-880h160q33 0 56.5 23.5T640-800v80h160q33 0 56.5 23.5T880-640v440q0 33-23.5 56.5T800-120H160Zm0-80h640v-440H160v440Zm240-520h160v-80H400v80ZM160-200v-440 440Z"/></symbol>
+<symbol id="i-workspace_premium" viewBox="0 -960 960 960"><path d="m387-412 35-114-92-74h114l36-112 36 112h114l-93 74 35 114-92-71-93 71ZM240-40v-309q-38-42-59-96t-21-115q0-134 93-227t227-93q134 0 227 93t93 227q0 61-21 115t-59 96v309l-240-80-240 80Zm410-350q70-70 70-170t-70-170q-70-70-170-70t-170 70q-70 70-70 170t70 170q70 70 170 70t170-70ZM320-159l160-41 160 41v-124q-35 20-75.5 31.5T480-240q-44 0-84.5-11.5T320-283v124Zm160-62Z"/></symbol>
+</svg>
 <a class="skip-link" href="#main" data-i18n="a11y.skip">ข้ามไปยังเนื้อหา</a>
 
 <!-- 1. Header & navigation -->
@@ -316,7 +375,7 @@
       <a href="#learn" data-i18n="nav.learn">รูปแบบการเรียน</a>
       <a href="#topics" data-i18n="nav.topics">12 หัวข้อการเรียนรู้</a>
       <a href="#contact" data-i18n="nav.contact">ติดต่อเรา</a>
-      <a href="#enquire" class="btn btn-primary btn-lg nav-cta" data-cta="nav_menu"><span data-i18n="cta.request">รับข้อมูลหลักสูตร</span><span class="ms" aria-hidden="true">arrow_forward</span></a>
+      <a href="#enquire" class="btn btn-primary btn-lg nav-cta" data-cta="nav_menu"><span data-i18n="cta.request">รับข้อมูลหลักสูตร</span><svg class="ms" aria-hidden="true"><use href="#i-arrow_forward"></use></svg></a>
     </nav>
 
     <div class="header-actions">
@@ -324,7 +383,7 @@
         <button type="button" data-lang="th" aria-pressed="true">TH</button>
         <button type="button" data-lang="en" aria-pressed="false">EN</button>
       </div>
-      <a href="#enquire" class="btn btn-primary btn-lg header-cta" data-cta="header"><span data-i18n="cta.request">รับข้อมูลหลักสูตร</span><span class="ms" aria-hidden="true">arrow_forward</span></a>
+      <a href="#enquire" class="btn btn-primary btn-lg header-cta" data-cta="header"><span data-i18n="cta.request">รับข้อมูลหลักสูตร</span><svg class="ms" aria-hidden="true"><use href="#i-arrow_forward"></use></svg></a>
       <button type="button" class="menu-toggle" aria-controls="main-nav" aria-expanded="false" data-i18n-attr="aria-label:a11y.menu" aria-label="เมนู">
         <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
       </button>
@@ -341,12 +400,51 @@
   <div class="container hero-inner">
     <div class="hero-copy">
       <p class="eyebrow" data-reveal="up" data-i18n-html="hero.eyebrow">Harvard ManageMentor® ที่<br><strong>Wall Street English ขอนแก่น</strong></p>
+      <p class="hero-tagline" data-reveal="up">Professional English for Everyone</p>
       <h1 data-reveal="up" data-i18n-html="hero.title">พัฒนาภาษาอังกฤษ <span class="accent">พร้อมทักษะที่ใช้ได้จริงในการทำงาน</span></h1>
       <p class="lead" data-reveal="up" data-i18n="hero.text">เรียนรู้ด้านการสื่อสาร การบริหาร และการทำงานร่วมกับผู้อื่น ผ่านเนื้อหา Harvard ManageMentor® พร้อมคลาสออนไลน์และกิจกรรมแลกเปลี่ยนประสบการณ์</p>
-      <p class="hero-location" data-reveal="up"><span class="ms" aria-hidden="true">location_on</span><span data-i18n="hero.location">ติดต่อรับข้อมูลได้ที่ Wall Street English ชั้น 5 เซ็นทรัล ขอนแก่น</span></p>
+      <p class="hero-location" data-reveal="up"><svg class="ms" aria-hidden="true"><use href="#i-location_on"></use></svg><span data-i18n="hero.location">Wall Street English ชั้น 5 เซ็นทรัล ขอนแก่น</span></p>
       <div class="hero-actions" data-reveal="up">
-        <a href="#enquire" class="btn btn-primary btn-lg" data-cta="hero"><span data-i18n="cta.request">รับข้อมูลหลักสูตร</span><span class="ms" aria-hidden="true">arrow_forward</span></a>
         <a href="#topics" class="text-link" data-i18n="hero.secondary">ดู 12 หัวข้อการเรียนรู้</a>
+      </div>
+    </div>
+    <div class="hero-people" data-reveal="rise" data-reveal-delay="60">
+      <img src="assets/img/team-cutout.webp" alt="" width="800" height="1200" fetchpriority="high">
+    </div>
+    <div class="hero-form-card" data-reveal="rise" data-reveal-delay="120">
+      <form class="lead-form hero-form" id="hero-form" data-lead-form data-success="hero-form-success" novalidate>
+        <div class="hero-form-head">
+          <p class="hero-form-title" data-i18n="cta.request">รับข้อมูลหลักสูตร</p>
+          <p class="hero-form-sub" data-i18n="heroForm.title">ฝากชื่อและเบอร์โทร ให้เจ้าหน้าที่ติดต่อกลับ</p>
+        </div>
+        <div class="hero-form-fields">
+          <div class="form-row">
+            <label for="h-name"><span data-i18n="form.name">ชื่อ</span> <span class="req" aria-hidden="true">*</span></label>
+            <input id="h-name" name="name" type="text" autocomplete="name" required maxlength="120">
+            <p class="field-error" data-for="h-name" data-i18n="form.err.name" hidden>กรุณากรอกชื่อ</p>
+          </div>
+          <div class="form-row">
+            <label for="h-phone"><span data-i18n="form.phone">เบอร์โทรศัพท์</span> <span class="req" aria-hidden="true">*</span></label>
+            <input id="h-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required maxlength="20" placeholder="08x xxx xxxx">
+            <p class="field-error" data-for="h-phone" data-i18n="form.err.phone" hidden>กรุณากรอกเบอร์โทรศัพท์ที่ถูกต้อง</p>
+          </div>
+        </div>
+
+        <!-- honeypot (spam trap) -->
+        <div class="hp" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+        <!-- lead-source tracking -->
+        <input type="hidden" name="lead_source" value="hero_form">
+        <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="utm_term">
+        <input type="hidden" name="referrer"><input type="hidden" name="landing_page"><input type="hidden" name="lang" value="th">
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block"><span data-i18n="cta.request">รับข้อมูลหลักสูตร</span><svg class="ms" aria-hidden="true"><use href="#i-arrow_forward"></use></svg></button>
+        <p class="privacy-note"><svg class="ms" aria-hidden="true"><use href="#i-lock"></use></svg><span data-i18n-html="form.privacy">ข้อมูลของคุณจะใช้เพื่อติดต่อกลับเรื่องหลักสูตรนี้เท่านั้น อ่าน<a href="privacy" target="_blank">ประกาศความเป็นส่วนตัว</a></span></p>
+        <p class="form-status" role="alert" hidden></p>
+      </form>
+      <div class="form-success" id="hero-form-success" tabindex="-1" hidden>
+        <svg class="ms" aria-hidden="true"><use href="#i-check_circle"></use></svg>
+        <p data-i18n="form.success">ขอบคุณที่สนใจหลักสูตร เจ้าหน้าที่จะติดต่อกลับเพื่อให้ข้อมูลเพิ่มเติมค่ะ</p>
       </div>
     </div>
   </div>
@@ -375,19 +473,19 @@
     </div>
     <div class="learn-grid">
       <article class="learn-card" data-reveal="up">
-        <div class="learn-icon"><span class="ms" aria-hidden="true">laptop_mac</span></div>
+        <div class="learn-icon"><svg class="ms" aria-hidden="true"><use href="#i-laptop_mac"></use></svg></div>
         <p class="learn-label">Digital Learning</p>
         <h3 data-i18n="learn.c1.title">เรียนรู้ด้วยตนเอง ตามจังหวะของคุณ</h3>
         <p data-i18n="learn.c1.text">เรียนผ่านเนื้อหาดิจิทัล วิดีโอ แบบฝึกหัด และกิจกรรมในแพลตฟอร์ม</p>
       </article>
       <article class="learn-card" data-reveal="up">
-        <div class="learn-icon"><span class="ms" aria-hidden="true">co_present</span></div>
+        <div class="learn-icon"><svg class="ms" aria-hidden="true"><use href="#i-co_present"></use></svg></div>
         <p class="learn-label">Facilitated Online Class</p>
         <h3 data-i18n="learn.c2.title">ทบทวนและฝึกใช้ผ่านคลาสออนไลน์</h3>
         <p data-i18n="learn.c2.text">แลกเปลี่ยนแนวคิด พร้อมฝึกการสื่อสารผ่านกิจกรรมที่มีผู้ดำเนินคลาส</p>
       </article>
       <article class="learn-card" data-reveal="up">
-        <div class="learn-icon"><span class="ms" aria-hidden="true">hub</span></div>
+        <div class="learn-icon"><svg class="ms" aria-hidden="true"><use href="#i-hub"></use></svg></div>
         <p class="learn-label">HMM Networking</p>
         <h3 data-i18n="learn.c3.title">แลกเปลี่ยนประสบการณ์กับผู้เรียนคนอื่น</h3>
         <p data-i18n="learn.c3.text">เปิดมุมมองจากผู้คนต่างสายอาชีพ และเชื่อมโยงความรู้กับสถานการณ์จริง</p>
@@ -408,7 +506,7 @@
     </ol>
     <div class="topics-more" data-reveal="up">
       <button type="button" class="btn btn-outline" id="topics-toggle" aria-controls="topic-grid" aria-expanded="false">
-        <span data-i18n="topics.more">ดูครบทั้ง 12 หัวข้อ</span><span class="ms" aria-hidden="true">expand_more</span>
+        <span data-i18n="topics.more">ดูครบทั้ง 12 หัวข้อ</span><svg class="ms" aria-hidden="true"><use href="#i-expand_more"></use></svg>
       </button>
     </div>
   </div>
@@ -421,13 +519,13 @@
       <h2 data-reveal="up" data-i18n="who.title">หลักสูตรนี้เหมาะกับใคร?</h2>
     </div>
     <div class="who-grid">
-      <article class="who-card" data-reveal="zoom"><span class="ms" aria-hidden="true">school</span><p data-i18n-html="who.1"><strong>นักศึกษาและผู้เริ่มต้นทำงาน</strong> ที่อยากเตรียมทักษะการสื่อสารและการทำงานก่อนก้าวต่อไป</p></article>
-      <article class="who-card" data-reveal="zoom"><span class="ms" aria-hidden="true">work</span><p data-i18n-html="who.2"><strong>คนทำงาน</strong> ที่อยากเขียน นำเสนอ และร่วมประชุมได้อย่างมั่นใจขึ้น</p></article>
-      <article class="who-card" data-reveal="zoom"><span class="ms" aria-hidden="true">groups</span><p data-i18n-html="who.3"><strong>หัวหน้างานและเจ้าของธุรกิจ</strong> ที่อยากพัฒนาการบริหารทีมและการวางแผน</p></article>
-      <article class="who-card" data-reveal="zoom"><span class="ms" aria-hidden="true">self_improvement</span><p data-i18n-html="who.4"><strong>ผู้ที่ต้องการพัฒนาตนเอง</strong> และนำความรู้ไปใช้ในการเรียน การทำงาน และชีวิตจริง</p></article>
+      <article class="who-card" data-reveal="zoom"><svg class="ms" aria-hidden="true"><use href="#i-school"></use></svg><p data-i18n-html="who.1"><strong>นักศึกษาและผู้เริ่มต้นทำงาน</strong> ที่อยากเตรียมทักษะการสื่อสารและการทำงานก่อนก้าวต่อไป</p></article>
+      <article class="who-card" data-reveal="zoom"><svg class="ms" aria-hidden="true"><use href="#i-work"></use></svg><p data-i18n-html="who.2"><strong>คนทำงาน</strong> ที่อยากเขียน นำเสนอ และร่วมประชุมได้อย่างมั่นใจขึ้น</p></article>
+      <article class="who-card" data-reveal="zoom"><svg class="ms" aria-hidden="true"><use href="#i-groups"></use></svg><p data-i18n-html="who.3"><strong>หัวหน้างานและเจ้าของธุรกิจ</strong> ที่อยากพัฒนาการบริหารทีมและการวางแผน</p></article>
+      <article class="who-card" data-reveal="zoom"><svg class="ms" aria-hidden="true"><use href="#i-self_improvement"></use></svg><p data-i18n-html="who.4"><strong>ผู้ที่ต้องการพัฒนาตนเอง</strong> และนำความรู้ไปใช้ในการเรียน การทำงาน และชีวิตจริง</p></article>
     </div>
     <div class="center-cta" data-reveal="up">
-      <a href="#enquire" class="btn btn-primary btn-lg" data-cta="who"><span data-i18n="cta.request">รับข้อมูลหลักสูตร</span><span class="ms" aria-hidden="true">arrow_forward</span></a>
+      <a href="#enquire" class="btn btn-primary btn-lg" data-cta="who"><span data-i18n="cta.request">รับข้อมูลหลักสูตร</span><svg class="ms" aria-hidden="true"><use href="#i-arrow_forward"></use></svg></a>
     </div>
   </div>
 </section>
@@ -436,10 +534,10 @@
 <section class="cert">
   <div class="container cert-inner">
     <div class="cert-copy">
-      <span class="cert-badge" data-reveal="left"><span class="ms" aria-hidden="true">workspace_premium</span> Certificate of Completion</span>
+      <span class="cert-badge" data-reveal="left"><svg class="ms" aria-hidden="true"><use href="#i-workspace_premium"></use></svg> Certificate of Completion</span>
       <h2 data-reveal="left" data-i18n-html="cert.title">ต่อยอดการเรียนรู้ พร้อม Certificate of Completion</h2>
       <p data-reveal="left" data-i18n="cert.text">รับ Certificate of Completion จาก Harvard ManageMentor® เมื่อเรียนและผ่านข้อกำหนดของแต่ละหัวข้อ</p>
-      <a href="#enquire" class="btn btn-primary btn-lg" data-cta="certificate" data-reveal="left"><span data-i18n="cta.request">รับข้อมูลหลักสูตร</span><span class="ms" aria-hidden="true">arrow_forward</span></a>
+      <a href="#enquire" class="btn btn-primary btn-lg" data-cta="certificate" data-reveal="left"><span data-i18n="cta.request">รับข้อมูลหลักสูตร</span><svg class="ms" aria-hidden="true"><use href="#i-arrow_forward"></use></svg></a>
     </div>
     <figure class="cert-visual" data-reveal="cert" data-reveal-delay="150">
       <div class="cert-tilt">
@@ -466,13 +564,13 @@
           <p class="contact-phones"><a href="tel:043000222">043 000 222</a> / <a href="tel:0969535445">096 953 5445</a></p>
         </div>
         <div class="contact-actions">
-          <a class="chip" href="tel:043000222"><span class="ms" aria-hidden="true">call</span><span data-i18n="contact.call">โทร</span></a>
+          <a class="chip" href="tel:043000222"><svg class="ms" aria-hidden="true"><use href="#i-call"></use></svg><span data-i18n="contact.call">โทร</span></a>
           <a class="chip chip-line" id="line-link" data-line-cta="contact_chip" href="#" target="_blank" rel="noopener" hidden><span class="line-mark" aria-hidden="true">LINE</span><span id="line-label">LINE</span></a>
-          <a class="chip" id="maps-link" href="#" target="_blank" rel="noopener"><span class="ms" aria-hidden="true">directions</span><span data-i18n="contact.directions">เส้นทาง</span></a>
+          <a class="chip" id="maps-link" href="#" target="_blank" rel="noopener"><svg class="ms" aria-hidden="true"><use href="#i-directions"></use></svg><span data-i18n="contact.directions">เส้นทาง</span></a>
         </div>
         <div class="contact-qr" id="line-qr" hidden>
           <a class="qr-link" data-line-cta="contact_qr" href="#" target="_blank" rel="noopener">
-            <img src="assets/img/line-qr.png" width="456" height="480" loading="lazy" data-i18n-attr="alt:contact.qrAlt" alt="QR Code เพิ่มเพื่อน LINE Wall Street English ขอนแก่น">
+            <img src="assets/img/line-qr.png?v=2" width="456" height="480" loading="lazy" data-i18n-attr="alt:contact.qrAlt" alt="QR Code เพิ่มเพื่อน LINE Wall Street English ขอนแก่น">
           </a>
           <div class="qr-text">
             <p class="qr-title"><span class="line-mark" aria-hidden="true">LINE</span><span data-i18n="contact.qrTitle">เพิ่มเพื่อนทาง LINE</span></p>
@@ -484,7 +582,7 @@
     </div>
 
     <div class="form-wrap" data-reveal="rise" data-reveal-delay="120">
-      <form class="lead-form" id="lead-form" novalidate>
+      <form class="lead-form" id="lead-form" data-lead-form data-success="form-success" novalidate>
         <div class="form-row">
           <label for="f-name"><span data-i18n="form.name">ชื่อ</span> <span class="req" aria-hidden="true">*</span></label>
           <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="120">
@@ -525,16 +623,27 @@
         <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="utm_term">
         <input type="hidden" name="referrer"><input type="hidden" name="landing_page"><input type="hidden" name="lang" value="th">
 
-        <button type="submit" class="btn btn-primary btn-lg btn-block"><span data-i18n="form.submit">ส่งข้อมูลให้เจ้าหน้าที่ติดต่อกลับ</span><span class="ms" aria-hidden="true">send</span></button>
-        <p class="privacy-note"><span class="ms" aria-hidden="true">lock</span><span data-i18n-html="form.privacy">ข้อมูลของคุณจะใช้เพื่อติดต่อกลับเรื่องหลักสูตรนี้เท่านั้น อ่าน<a href="privacy" target="_blank">ประกาศความเป็นส่วนตัว</a></span></p>
-        <p class="form-status" id="form-status" role="alert" hidden></p>
+        <button type="submit" class="btn btn-primary btn-lg btn-block"><span data-i18n="form.submit">ส่งข้อมูลให้เจ้าหน้าที่ติดต่อกลับ</span><svg class="ms" aria-hidden="true"><use href="#i-send"></use></svg></button>
+        <p class="privacy-note"><svg class="ms" aria-hidden="true"><use href="#i-lock"></use></svg><span data-i18n-html="form.privacy">ข้อมูลของคุณจะใช้เพื่อติดต่อกลับเรื่องหลักสูตรนี้เท่านั้น อ่าน<a href="privacy" target="_blank">ประกาศความเป็นส่วนตัว</a></span></p>
+        <p class="form-status" role="alert" hidden></p>
       </form>
 
       <div class="form-success" id="form-success" tabindex="-1" hidden>
-        <span class="ms" aria-hidden="true">check_circle</span>
-        <p data-i18n="form.success">ได้รับข้อมูลของคุณแล้ว ทีม Wall Street English ขอนแก่นจะติดต่อกลับเพื่อให้รายละเอียดหลักสูตร</p>
+        <svg class="ms" aria-hidden="true"><use href="#i-check_circle"></use></svg>
+        <p data-i18n="form.success">ขอบคุณที่สนใจหลักสูตร เจ้าหน้าที่จะติดต่อกลับเพื่อให้ข้อมูลเพิ่มเติมค่ะ</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- 9. Learn – Apply – Grow -->
+<section class="lag" aria-label="Learn – Apply – Grow">
+  <div class="container lag-row">
+    <div class="lag-item" data-reveal="up"><svg class="ms" aria-hidden="true"><use href="#i-menu_book"></use></svg><div><strong>LEARN</strong><span data-i18n="lag.learn">เรียนรู้เนื้อหาระดับโลก</span></div></div>
+    <svg class="ms lag-chev" aria-hidden="true"><use href="#i-chevron_right"></use></svg>
+    <div class="lag-item" data-reveal="up"><svg class="ms" aria-hidden="true"><use href="#i-handshake"></use></svg><div><strong>APPLY</strong><span data-i18n="lag.apply">นำไปใช้ได้จริง</span></div></div>
+    <svg class="ms lag-chev" aria-hidden="true"><use href="#i-chevron_right"></use></svg>
+    <div class="lag-item" data-reveal="up"><svg class="ms" aria-hidden="true"><use href="#i-trending_up"></use></svg><div><strong>GROW</strong><span data-i18n="lag.grow">เติบโตในสายอาชีพ</span></div></div>
   </div>
 </section>
 
@@ -552,9 +661,9 @@
 <div class="fab-dock" id="fab-dock">
   <a href="#enquire" class="fab-cta" data-cta="floating_cta">
     <span class="fab-shine" aria-hidden="true"></span>
-    <span class="fab-cta-icon" aria-hidden="true"><span class="ms">forum</span></span>
+    <span class="fab-cta-icon" aria-hidden="true"><svg class="ms" aria-hidden="true"><use href="#i-forum"></use></svg></span>
     <span class="fab-cta-label" data-i18n="cta.request">รับข้อมูลหลักสูตร</span>
-    <span class="fab-cta-arrow" aria-hidden="true"><span class="ms">arrow_forward</span></span>
+    <span class="fab-cta-arrow" aria-hidden="true"><svg class="ms" aria-hidden="true"><use href="#i-arrow_forward"></use></svg></span>
   </a>
   <div class="fab-stack">
     <a class="fab-line" id="fab-line" href="#" target="_blank" rel="noopener" hidden data-line-cta="floating" data-i18n-attr="aria-label:a11y.line;data-tip:a11y.line" aria-label="แชทกับเราทาง LINE" data-tip="แชทกับเราทาง LINE">
@@ -565,7 +674,7 @@
     </a>
     <button type="button" class="fab-top" id="fab-top" data-i18n-attr="aria-label:a11y.top;data-tip:a11y.top" aria-label="กลับขึ้นด้านบน" data-tip="กลับขึ้นด้านบน">
       <svg class="fab-ring" viewBox="0 0 48 48" aria-hidden="true"><circle class="fab-ring-track" cx="24" cy="24" r="21"/><circle class="fab-ring-bar" cx="24" cy="24" r="21"/></svg>
-      <span class="ms fab-top-arrow" aria-hidden="true">arrow_upward</span>
+      <svg class="ms fab-top-arrow" aria-hidden="true"><use href="#i-arrow_upward"></use></svg>
     </button>
   </div>
 </div>
