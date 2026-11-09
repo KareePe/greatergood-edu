@@ -198,7 +198,7 @@ function testNotify() {
     name: 'ทดสอบการแจ้งเตือน (Test)', phone: '081 234 5678', status: STATUS_LABEL.working_professional,
     email: '', marketing_opt_in: 'no', lang: 'th', lead_source: 'test',
     utm_source: '', utm_medium: '', utm_campaign: '', utm_content: '', utm_term: '',
-    referrer: '', landing_page: 'https://greatergood-edu.web.app/', user_agent: ''
+    referrer: '', landing_page: 'https://gged-hmm.com/', user_agent: ''
   });
   console.log('Test e-mail sent to ' + NOTIFY_EMAIL + '. Remaining daily quota: ' + MailApp.getRemainingDailyQuota());
 }

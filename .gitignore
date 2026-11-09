@@ -26,7 +26,6 @@ _archive/
 # --- Raw source artwork (~26 MB) ---------------------------------------
 # the site uses the optimised copies in assets/img/; keep originals in the team drive
 assets/element/
-assets/img/team-cutout.webp
 
 # --- Font files the site does not load ---------------------------------
 assets/fonts/AvenirLTProLight.otf

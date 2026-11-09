@@ -22,8 +22,8 @@
     endpoint: 'submit.php',
 
     // Public site address, used for canonical / hreflang / Open Graph URLs.
-    // Change this (and the URLs in index.html <head>, sitemap.xml, robots.txt) if a custom domain is added.
-    siteUrl: 'https://greatergood-edu.web.app',
+    // Custom domain gged-hmm.com. If it ever changes, also update the URLs in index.html <head>, privacy.html, sitemap.xml and robots.txt.
+    siteUrl: 'https://gged-hmm.com',
 
     // LINE Official Account of Wall Street English Khon Kaen (from QR CODE LINE.png).
     // The LINE button and footer link stay hidden if lineUrl is empty.

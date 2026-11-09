@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://greatergood-edu.web.app/sitemap.xml
+Sitemap: https://gged-hmm.com/sitemap.xml
